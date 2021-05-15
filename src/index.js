@@ -15,6 +15,7 @@ import axios from 'axios';
 function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchAllMovies);
     yield takeEvery('FETCH_GENRES', fetchAllGenres);
+    yield takeEvery('FETCH_MOVIE_DETAILS', fetchMovieDetails);
 }
 
 function* fetchAllMovies() {
@@ -25,7 +26,7 @@ function* fetchAllMovies() {
         yield put({ type: 'SET_MOVIES', payload: movies.data });
 
     } catch {
-        console.log('get all error');
+        console.log('get all movies saga error');
     }
         
 }
@@ -38,15 +39,31 @@ function* fetchAllGenres() {
         yield put({ type: 'SET_GENRES', payload: genres.data });
 
     } catch {
-        console.log('get all error');
+        console.log('get all genres saga error');
     }
         
+}
+
+//look at saga's edit example...
+//also need to return all genres? Should that happen here? Can that happen here?
+function* fetchMovieDetails(action) {
+    console.log('fetchMovieDetails saga', action.payload);
+    
+    //get movie details from DB based on id
+    try{
+        const movieDetails = yield axios.get(`/api/movie/details/${action.payload}`); // /${id}? or + action.payload
+        console.log('get movie details', movieDetails.data);
+        yield put({ type: 'SET_MOVIE_DETAILS', payload: movieDetails.data });
+    } catch {
+        console.log('get all movie details saga error');
+    }
+
 }
 
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
 
-// Used to store movies returned from the server
+// Used to store movies returned from server 
 const movies = (state = [], action) => {
     switch (action.type) {
         case 'SET_MOVIES':
@@ -56,10 +73,22 @@ const movies = (state = [], action) => {
     }
 }
 
-// Used to store the movie genres
+// Used to store movie genres returned from server
 const genres = (state = [], action) => {
     switch (action.type) {
         case 'SET_GENRES':
+            return action.payload;
+        default:
+            return state;
+    }
+}
+
+//Used to store movie details returned from server
+const movieDetails = (state = [], action) => { // {}, or {id: '', title: '', description: ''}
+    switch (action.type) {
+        case 'SET_MOVIE_DETAILS':
+            return action.payload;
+        case 'CLEAR_MOVIE_DETAILS':
             return action.payload;
         default:
             return state;
@@ -71,6 +100,7 @@ const storeInstance = createStore(
     combineReducers({
         movies,
         genres,
+        movieDetails,
     }),
     // Add sagaMiddleware to our store
     applyMiddleware(sagaMiddleware, logger),
@@ -87,3 +117,4 @@ ReactDOM.render(
     </React.StrictMode>,
     document.getElementById('root')
 );
+

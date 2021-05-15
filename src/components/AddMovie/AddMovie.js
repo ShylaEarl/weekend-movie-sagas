@@ -26,12 +26,9 @@ function AddMovie() {
     //advances to the next page
     const history = useHistory();
 
-    //on click of save button, addMovie collects state data in an object 
-    //and sends it to the DB via an axios POST route (check server, already written). 
+    //on click of save button add state data to an object and send to DB via POST  
     const addMovie = () => { 
-        console.log('add movie data. what variable to I log here to see data?', );
-        
-        //client side validation prevents missing data in DB (columns all NOT NULL)
+        //client side validation prevents missing data in DB (all DB columns are NOT NULL)
         if (title === '' || poster === '' || description === '' || genre_id === '') {
             swal({
                 text: 'Please fill in all fields.',
@@ -48,7 +45,7 @@ function AddMovie() {
                     genre_id: genre_id}
                 ).then((response) =>{
                     console.log('back from POST', response)
-                    //clicking save button also pushes user to home/list page...
+                    //clicking save button also routes user to home/list page...
                     history.push("/");
                 }).catch((error) => {
                     console.log('in addMovie POST', error)
@@ -83,11 +80,19 @@ function AddMovie() {
                 form="userForm">
             </textarea>
             {/* TODO - change values to DB genre values either dynamically or hard code */}
-            <select placeholder="Select A Genre" 
-                type=""
+            {/* <select>
+    {genres.map((genre) => {
+        return (
+            <option key={genre.id} value={genre.id}>{genre.name}</option>
+            );
+        })}
+</select> */}
+            
+            <select 
                 value={genre_id}
                 onChange={(event) => setGenre_id(event.target.value)}
                 className="select-genre"> 
+                <option value="default"></option>
                 <option value="1">Adventure</option> 
                 <option value="2">Animated</option>
                 <option value="3">Biographical</option>

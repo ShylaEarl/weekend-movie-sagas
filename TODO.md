@@ -3,7 +3,6 @@
 - [x] install dependancies by running `npm install`
     -- Note to self, material UI automatically installed
 - [x] spin project up with `npm run server` and `npm run client` 
-
 - [x] created MovieDetails & AddMovie components and imported them into App
 
 ## Home Page (App.js)
@@ -29,12 +28,19 @@
     - [x] save button routes to Home page 
     - [x] Home page displays updated movie list including the newly added movie (useEffect in home page should re-render with new movie) 
 
+## Index.js
+- [x] add genre saga
+
+## Genre.router
+- [x] add get route to return all DB genres to saga/redux
+
 ## General Considerations
-- [ ] Invest some time in styling it up!
-    - [ ] Research cards for your movie posters on the list page
-    - [ ] Research grids for your movie posters on the Movie List page
-- [ ] Commit your code frequently! You should have at 15+ commits on a project of this size. Use branches to help break down your features.
-- [ ] Comment your code.
-- [ ] Update this README to include a description of the project in your own words.
+- [] Invest some time in styling it up!
+    - [] Research cards for your movie posters on the list page
+    - [] Research grids for your movie posters on the Movie List page
+- [x] Commit your code frequently! You should have at 15+ commits on a project of this size. 
+- [] Use branches to help break down your features.
+- [] Comment your code.
+- [] Update this README to include a description of the project in your own words.
 
 ## Stretch Goals - TBD
