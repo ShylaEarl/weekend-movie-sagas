@@ -12,18 +12,20 @@
 - [x] create link to Add Movie Page w/ a button
 
 ## Details Page (MovieDetails)
-- [] Show all details of a specific movie including all of the genres (store data in redux)
-    - [] create a GET request for a specific movie using req.params and :id
+- [] Show all details of a specific movie including all of the genres   
+    (store data in redux)
+    - [] create a GET request for a specific movie using req.params and :id (see above in home page)
 - [] Details page should have a `Back to List` button routing to home page
 
 ## Add Movie Page (AddMovie)
-- [] add an input field for movie title
-- [] add an input field for movie poster image URL
-- [] add a textarea for movie description
-- [] add dropdown for genres
-- [] add cancel button which routes to the home page (App, '/')
+- [x] add an input field for movie title
+- [x] add an input field for movie poster image URL
+- [x] add a textarea for movie description
+- [] add dropdown for genres (make this dynamic somehow?)
+- [x] add cancel button which routes to the home page ('/')
 - [] add save button that adds movie to database (POST route at /api/movie)
-    - [] save button routes to Home page which displays updated movie list including the newly added movie 
+    - [x] save button routes to Home page 
+    - [] Home page displays updated movie list including the newly added movie (useEffect in home page should re-render with new movie) 
 
 ## General Considerations
 - [ ] Invest some time in styling it up!
