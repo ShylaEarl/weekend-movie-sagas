@@ -84,7 +84,7 @@ const genres = (state = [], action) => {
 }
 
 //Used to store movie details returned from server
-const movieDetails = (state = [], action) => { // {}, or {id: '', title: '', description: ''}
+const movieDetails = (state = [], action) => { 
     switch (action.type) {
         case 'SET_MOVIE_DETAILS':
             return action.payload;

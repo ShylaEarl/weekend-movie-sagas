@@ -1,4 +1,4 @@
-//import MovieList from "../MovieList/MovieList";
+import React from 'react'; // { useEffect } ??
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
@@ -22,22 +22,26 @@ function MovieDetails(){
     return(
         <>
             <p>This is where the details for a specific movie will show.</p>
-            <div key={movieDetails.id} >
-                <h3>{movieDetails.title}</h3>
-                <img src={movieDetails.poster} 
-                    alt={movieDetails.title}
-                />
-                {movieDetails.description}
-                {movieDetails.genre}
-            </div>
-            {/* Do I need to map through genre list and look for matches?
-            {movies.genre_id? This would return a number. We want a name .name? other from DB? id?} */}
+            {movieDetails.map(movieDetails => {
+                return (<div key={movieDetails.id} >
+                    <h3>{movieDetails.title}</h3>
+                    <img src={movieDetails.poster} 
+                        alt={movieDetails.title}
+                    />
+                    {movieDetails.description}
+                    {movieDetails.genre}
+                </div>)
+            })}
+
             <button onClick={goHome}>Back to List</button>
         </>
     )
 }
 
 export default MovieDetails;
+
+{/* Do I need to map through genre list and look for matches?
+{movies.genre_id? This would return a number. We want a name .name? other from DB? id?} */}
 
 // - [] Show all details of a specific movie 
 // - [] including all of the genres (store data in redux)
