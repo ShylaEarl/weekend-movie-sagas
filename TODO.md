@@ -21,12 +21,13 @@
 - [x] add an input field for movie title
 - [x] add an input field for movie poster image URL
 - [x] add a textarea for movie description
-- [] add dropdown for genres (make this dynamic somehow?)
+- [x] add dropdown for genres 
+    - [] make dropdown dynamic somehow?
 - [x] add cancel button which routes to the home page ('/')
 - [x] add save button 
-- [] save button adds movie to database (POST route at /api/movie)
+- [x] save button adds movie to database (POST route at /api/movie)
     - [x] save button routes to Home page 
-    - [] Home page displays updated movie list including the newly added movie (useEffect in home page should re-render with new movie) 
+    - [x] Home page displays updated movie list including the newly added movie (useEffect in home page should re-render with new movie) 
 
 ## General Considerations
 - [ ] Invest some time in styling it up!

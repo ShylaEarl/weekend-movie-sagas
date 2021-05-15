@@ -30,6 +30,7 @@ function MovieList() {
     const dispatch = useDispatch();
     const movies = useSelector(store => store.movies);
 
+    //may not need dispatch to genre saga here...
     useEffect(() => {
         dispatch({ type: 'FETCH_MOVIES' });
         dispatch({ type: 'FETCH_GENRES'});
