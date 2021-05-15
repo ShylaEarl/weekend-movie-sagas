@@ -7,9 +7,9 @@
 - [x] created MovieDetails & AddMovie components and imported them into App
 
 ## Home Page (App.js)
-- [] create click event on movie posters 
+- [x] create click event on movie posters 
     - [] route to /details for each movie (capture movie id value to route)
-- [] create link to Add Movie Page
+- [x] create link to Add Movie Page w/ a button
 
 ## Details Page (MovieDetails)
 - [] Show all details of a specific movie including all of the genres (store data in redux)
