@@ -5,6 +5,8 @@ import { useHistory } from 'react-router-dom';
 
 function AddMovie() {
 
+    //TODO - add genre reducer to access genre info
+
     //sets state/captures input data from user
     const [title, setTitle] = useState('');
     const [poster, setPoster] = useState('');

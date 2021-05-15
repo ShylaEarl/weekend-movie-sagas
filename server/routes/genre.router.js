@@ -8,6 +8,7 @@ router.get('/', (req, res) => {
   const query = `SELECT * FROM genres ORDER BY "id" ASC`;
   pool.query(query)
     .then( result => {
+      console.log('genre.router get query', result.rows);
       res.send(result.rows);
     })
     .catch(err => {
