@@ -15,7 +15,7 @@
 - [] Show all details of a specific movie including all of the genres   
     (store data in redux)
     - [] create a GET request for a specific movie using req.params and :id (see above in home page)
-- [] Details page should have a `Back to List` button routing to home page
+- [x] Details page should have a `Back to List` button routing to home page
 
 ## Add Movie Page (AddMovie)
 - [x] add an input field for movie title
@@ -23,7 +23,8 @@
 - [x] add a textarea for movie description
 - [] add dropdown for genres (make this dynamic somehow?)
 - [x] add cancel button which routes to the home page ('/')
-- [] add save button that adds movie to database (POST route at /api/movie)
+- [x] add save button 
+- [] save button adds movie to database (POST route at /api/movie)
     - [x] save button routes to Home page 
     - [] Home page displays updated movie list including the newly added movie (useEffect in home page should re-render with new movie) 
 

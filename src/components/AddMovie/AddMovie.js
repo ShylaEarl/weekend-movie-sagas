@@ -1,11 +1,20 @@
 import axios from 'axios';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+
+//import React, { useEffect } from 'react';
 
 function AddMovie() {
 
+    //Do I need to add useEffect here to call genres' from DB? if so, import useEffect.
+    //or is it ok to stay in movielist?
+    // useEffect(() => {
+    //     dispatch({ type: 'FETCH_GENRES'});
+    // }, []);
+
     //TODO - add genre reducer to access genre info
+    const genres = useSelector(store => store.genres);
 
     //sets state/captures input data from user
     const [title, setTitle] = useState('');
@@ -80,10 +89,8 @@ export default AddMovie;
 // - [x] add an input field for movie poster image URL
 // - [x] add a textarea for movie description
 // - [] add dropdown for genres
-// - [x] add cancel button which routes to the home page (App, '/')
-// - [x] add save button that adds movie to database (POST route at /api/movie)
-//     - [x] save button routes to Home page which 
-       // -[] Home page displays updated movie list including the newly added movie 
+// - [] save button adds movie to database (POST route at /api/movie)
+// -[] Home page displays updated movie list including the newly added movie 
 
 //Genre Options
 //Adventure
