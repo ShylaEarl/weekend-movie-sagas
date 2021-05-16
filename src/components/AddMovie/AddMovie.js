@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import './AddMovie.css'
 
 function AddMovie() {
 
@@ -61,7 +62,7 @@ function AddMovie() {
     }
 
     return (
-        <div>
+        <div className="movie-inputs">
             <input placeholder="Title"
                 type="text"
                 value={title}
