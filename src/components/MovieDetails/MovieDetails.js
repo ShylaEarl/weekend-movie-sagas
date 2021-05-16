@@ -34,7 +34,7 @@ function MovieDetails() {
                 </div>)
             })}
             <br />
-            <button onClick={goHome}>Back to List</button>
+            <button id="back-button" onClick={goHome}>Back to List</button>
         </>
     )
 }
