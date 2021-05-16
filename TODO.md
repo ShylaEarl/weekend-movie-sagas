@@ -46,7 +46,7 @@
 - [x] TODO assignment 2 on sql queries and table JOINS
 
 ## General Considerations
-- [] Invest some time in styling it up!
+- [x] Invest some time in styling it up!
     - [] Research cards for your movie posters on the list page
     - [] Research grids for your movie posters on the Movie List page
 - [x] Commit your code frequently! You should have at 15+ commits on a project of this size. 
