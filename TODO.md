@@ -7,13 +7,13 @@
 
 ## Home Page (App.js)
 - [x] create click event on movie posters 
-    - [] route to /details for each movie (capture movie id value to route)
+    - [x] route to /details for each movie (capture movie id value to route)
 - [x] create link to Add Movie Page w/ a button
 
 ## Details Page (MovieDetails)
-- [] Show all details of a specific movie including all of the genres   
-    (store data in redux)
-    - [] create a GET request for a specific movie using req.params and :id (see above in home page)
+- [x] Show all details of a specific movie 
+    - [] including all of the genres of said movie (store data in redux)
+    - [x] create a GET request for a specific movie using req.params and :id (see above in home page)
 - [x] Details page should have a `Back to List` button routing to home page
 
 ## Add Movie Page (AddMovie)
@@ -30,9 +30,13 @@
 
 ## Index.js
 - [x] add genre saga
+- [x] add fetchMovieDetails saga
 
 ## Genre.router
 - [x] add get route to return all DB genres to saga/redux
+
+## Movie.router
+- [x] add get request for specific movie using req.params.id and sql query
 
 ## General Considerations
 - [] Invest some time in styling it up!

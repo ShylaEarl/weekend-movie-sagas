@@ -83,7 +83,7 @@ const genres = (state = [], action) => {
     }
 }
 
-//Used to store movie details returned from server
+// Used to store movie details returned from server
 const movieDetails = (state = [], action) => { 
     switch (action.type) {
         case 'SET_MOVIE_DETAILS':

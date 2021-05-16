@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useHistory} from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import './MovieList.css'
-import axios from 'axios';
 
 function MovieList() {
 
@@ -12,32 +11,11 @@ function MovieList() {
         history.push("/addmovie");
     }
 
-    //TODO finish get request (check movie.router) for a specific movie using req.params and :id 
-    //and return the details of the specific movie and route to details page
     const pushMovieDetails = (id) => {
         console.log('clicked', id);
-
         dispatch({type: 'FETCH_MOVIE_DETAILS', payload: id})
-        history.push("/details"); //history.push("/details/${id}") or /:id or just /details
-        
-        // axios.get('/api/movies', (req, res))
-        //     .then((response) => {
-        //         console.log('movie detail GET request', response);
-        //         history.push("/details/${id}") //or /:id or just /details
-        //     })
-        //     .catch((error) => {
-        //         console.log('error in movie detail GET', error);
-        //     })
+        history.push("/details");
     }
-
-    // const getDetails = (id) => {
-//     //function executed when a movie is clicked
-//     //dispatches the movie ID to a reducer which stores the details on the clicked movie
-//     dispatch({type: 'FETCH_MOVIE_ID', payload: id})
-//     //pushes to details page
-//     history.push('/Details')
-// }
-
 
     const dispatch = useDispatch();
     const movies = useSelector(store => store.movies);

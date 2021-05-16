@@ -1,19 +1,19 @@
-import React from 'react'; // { useEffect } ??
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 function MovieDetails(){
     
-    // map through an array? or just show one object via id?
-    //movie detail reducer to hold movie details based on id?
+    //movie detail reducer holds movie details based on id
     const movieDetails = useSelector(store => store.movieDetails);
 
-    //advances to the next page
+    //function that allows advance to the next page
     const history = useHistory();
 
+    //dispatch action to reducer
     const dispatch = useDispatch();
 
-    //back to list button routes to home page
+    //back to list button routes to home page and clears movie details reducer
     const goHome = () => {
         dispatch({type: 'CLEAR_MOVIE_DETAILS', payload: []});
         history.push("/");
@@ -40,10 +40,13 @@ function MovieDetails(){
 
 export default MovieDetails;
 
+
+//TODO - ADD all genres to each movie
+
 {/* Do I need to map through genre list and look for matches?
 {movies.genre_id? This would return a number. We want a name .name? other from DB? id?} */}
 
-// - [] Show all details of a specific movie 
+// - [x] Show all details of a specific movie 
 // - [] including all of the genres (store data in redux)
 
 

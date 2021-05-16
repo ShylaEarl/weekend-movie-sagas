@@ -46,7 +46,7 @@ function AddMovie() {
                 ).then((response) =>{
                     console.log('back from POST', response)
                     //clicking save button also routes user to home/list page...
-                    history.push("/");
+                    history.push('/');
                 }).catch((error) => {
                     console.log('in addMovie POST', error)
                 });
@@ -55,7 +55,7 @@ function AddMovie() {
 
     //cancel button routes to home page
     const goHome = () => {
-        history.push("/");
+        history.push('/');
     }
 
     return(
@@ -79,33 +79,15 @@ function AddMovie() {
                 name="description"
                 form="userForm">
             </textarea>
-            {/* TODO - change values to DB genre values either dynamically or hard code */}
-            {/* <select>
-    {genres.map((genre) => {
-        return (
-            <option key={genre.id} value={genre.id}>{genre.name}</option>
-            );
-        })}
-</select> */}
-            
-            <select 
-                value={genre_id}
-                onChange={(event) => setGenre_id(event.target.value)}
-                className="select-genre"> 
-                <option value="default"></option>
-                <option value="1">Adventure</option> 
-                <option value="2">Animated</option>
-                <option value="3">Biographical</option>
-                <option value="4">Comedy</option>
-                <option value="5">Disaster</option>
-                <option value="6">Drama</option> 
-                <option value="7">Epic</option>
-                <option value="8">Fantasy</option>
-                <option value="9">Musical</option>
-                <option value="10">Romantic</option>
-                <option value="11">Science Fiction</option>
-                <option value="12">Space-Opera</option>
-                <option value="13">Superhero</option>
+            {/* generates genres dynamically TODO - double check on this w/ Karsten tomorrow */}
+            <select placeholder="Choose a Genre" 
+                    type="text"
+                    value={genre_id}
+                    onChange={(event) => setGenre_id(event.target.value)}
+                    className="select-genre">
+                        {genres.map((genre) => {
+                            return (<option key={genre.id} value={genre.id}>{genre.name}</option>);
+                        })}
             </select>
             <button onClick={goHome}>Cancel</button>
             <button onClick={addMovie}>Save</button>
@@ -115,14 +97,24 @@ function AddMovie() {
 
 export default AddMovie;
 
-// - [x] add an input field for movie title
-// - [x] add an input field for movie poster image URL
-// - [x] add a textarea for movie description
-// - [x] add dropdown for genres 
-//      -[] make the dropdown dynamic somehow?
-// - [x] save button adds movie to database (POST route at /api/movie)
-// -[x] Home page displays updated movie list including the newly added movie 
+//Just in case... hardcoded dropdown genre options
 
-{/* <>
-    {props.genres.map((genre) => (<option value={genre.id}>{genre.name}</option>))}
-</> */}
+{/* <select placeholder="Choose a Genre"
+    value={genre_id}
+    onChange={(event) => setGenre_id(event.target.value)}
+    className="select-genre"> 
+    <option value="default"></option>
+    <option value="1">Adventure</option> 
+    <option value="2">Animated</option>
+    <option value="3">Biographical</option>
+    <option value="4">Comedy</option>
+    <option value="5">Disaster</option>
+    <option value="6">Drama</option> 
+    <option value="7">Epic</option>
+    <option value="8">Fantasy</option>
+    <option value="9">Musical</option>
+    <option value="10">Romantic</option>
+    <option value="11">Science Fiction</option>
+    <option value="12">Space-Opera</option>
+    <option value="13">Superhero</option>
+</select> */}
