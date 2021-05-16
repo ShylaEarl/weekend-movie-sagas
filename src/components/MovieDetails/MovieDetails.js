@@ -4,19 +4,19 @@ import { useHistory } from 'react-router-dom';
 
 function MovieDetails() {
 
-    //movie detail reducer holds movie details based on id
-    const movieDetails = useSelector(store => store.movieDetails);
-
-    //function that allows advance to the next page
+    //functionality to route to a page
     const history = useHistory();
 
-    //dispatch action to reducer
+    //functionality to dispatch information to a saga or reducer
     const dispatch = useDispatch();
 
-    //back to list button routes to home page and clears movie details reducer
+    //creates a redux store instance for movieDetails reducer
+    const movieDetails = useSelector(store => store.movieDetails);
+
+    //routes to home page and clears movie details reducer
     const goHome = () => {
         dispatch({ type: 'CLEAR_MOVIE_DETAILS', payload: [] });
-        history.push("/");
+        history.push('/');
     }
 
     return (
