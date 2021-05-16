@@ -5,12 +5,19 @@ import { useHistory } from 'react-router-dom';
 
 function AddMovie() {
 
-    //calls genre saga to return all genres from DB
+    //dispatch to genre saga returns all genres from DB 
+    //and adds them to genre reducer
     useEffect(() => {
         dispatch({ type: 'FETCH_GENRES' });
     }, []);
 
-    //redux store instance to access all genres
+    //functionality to route to a page
+    const history = useHistory();
+
+    //functionality to dispatch information to a saga or reducer
+    const dispatch = useDispatch();
+
+    //creates a redux store instance for genres reducer
     const genres = useSelector(store => store.genres);
 
     //sets state/captures input data from user
@@ -19,14 +26,7 @@ function AddMovie() {
     const [description, setDescription] = useState('');
     const [genre_id, setGenre_id] = useState('');
 
-    //May not need this. I think I'm just posting to the DB, not the reducer...
-    //on action call, sends payload (setState) to redux store reducer
-    const dispatch = useDispatch();
-
-    //advances to the next page
-    const history = useHistory();
-
-    //on click of save button add state data to an object and send to DB via POST  
+    //adds state data to an object and sends it to DB via POST  
     const addMovie = () => {
         //client side validation prevents missing data in DB (all DB columns are NOT NULL)
         if (title === '' || poster === '' || description === '' || genre_id === '') {
@@ -47,7 +47,7 @@ function AddMovie() {
                 }
             ).then((response) => {
                 console.log('back from POST', response)
-                //clicking save button also routes user to home/list page...
+                //routes to home page
                 history.push('/');
             }).catch((error) => {
                 console.log('in addMovie POST', error)
@@ -55,14 +55,13 @@ function AddMovie() {
         }
     }
 
-    //cancel button routes to home page
+    //routes to home page
     const goHome = () => {
         history.push('/');
     }
 
     return (
         <div>
-            <p>This is where a user can add a new movie!</p>
             <input placeholder="Title"
                 type="text"
                 value={title}
