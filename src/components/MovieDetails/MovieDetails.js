@@ -22,14 +22,14 @@ function MovieDetails(){
     return(
         <>
             <p>This is where the details for a specific movie will show.</p>
-            {movieDetails.map(movieDetails => {
-                return (<div key={movieDetails.id} >
+            {movieDetails.map((movieDetails, i) => {
+                return (<div key={i} >
                     <h3>{movieDetails.title}</h3>
                     <img src={movieDetails.poster} 
                         alt={movieDetails.title}
                     />
                     {movieDetails.description}
-                    {movieDetails.genre}
+                    {movieDetails.genres}
                 </div>)
             })}
 

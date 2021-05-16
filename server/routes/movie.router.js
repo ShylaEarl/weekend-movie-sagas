@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool')
 
-//gets all movies from DB
+//get all movies from DB
 router.get('/', (req, res) => {
 
   const query = `SELECT * FROM movies ORDER BY "title" ASC`;
@@ -17,11 +17,15 @@ router.get('/', (req, res) => {
 
 });
 
-//get movie details from DB based on id
+//get movie details from DB based on id (maybe add query here to include genres?)
 router.get('/details/:id', (req, res) => {
   console.log("get details via id", req.params.id);
     
-  const query = `SELECT movies.title, movies.poster, movies.description FROM movies WHERE id=$1;`;
+  const query = `SELECT movies.title, movies.poster, movies.description, 
+                ARRAY_AGG(genres.name) as genres FROM movies JOIN movies_genres ON 
+                movie_id = movies.id JOIN genres ON genres.id = genre_id 
+                WHERE movies.id=$1 GROUP BY movies.title, movies.poster, 
+                movies.description;`;
   pool.query(query, [req.params.id])
     .then( result => {
       res.send(result.rows);
@@ -32,6 +36,20 @@ router.get('/details/:id', (req, res) => {
     })
 
 });
+
+// `SELECT movies.title, movies.poster, movies.description FROM movies WHERE id=$1;`;
+
+// `SELECT movies.title, movies.poster, movies.description, 
+//                 ARRAY_AGG(genres.name) FROM movies JOIN movies_genres ON 
+//                 movie_id = movies.id JOIN genres ON genres.id = genre_id 
+//                 WHERE movies.id=$1 GROUP BY movies.title, movies.poster, 
+//                 movies.description;`;
+
+// SELECT movies.title, movies.poster, movies.description, 
+// ARRAY_AGG(genres.name) FROM movies JOIN movies_genres ON 
+// movie_id = movies.id JOIN genres ON genres.id = genre_id 
+// WHERE movies.id=$1 GROUP BY movies.title, movies.poster, movies.description;
+
 
 router.post('/', (req, res) => {
   console.log(req.body);

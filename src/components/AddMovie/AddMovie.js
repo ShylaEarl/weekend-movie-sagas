@@ -17,7 +17,7 @@ function AddMovie() {
     const [title, setTitle] = useState('');
     const [poster, setPoster] = useState('');
     const [description, setDescription] = useState('');
-    const [genre_id, setGenre_id] = useState('');
+    const [genre, setGenre] = useState('');
 
     //May not need this. I think I'm just posting to the DB, not the reducer...
     //on action call, sends payload (setState) to redux store reducer
@@ -29,7 +29,7 @@ function AddMovie() {
     //on click of save button add state data to an object and send to DB via POST  
     const addMovie = () => { 
         //client side validation prevents missing data in DB (all DB columns are NOT NULL)
-        if (title === '' || poster === '' || description === '' || genre_id === '') {
+        if (title === '' || poster === '' || description === '' || genre === '') {
             swal({
                 text: 'Please fill in all fields.',
                 buttons: {
@@ -42,7 +42,7 @@ function AddMovie() {
                     {title: title,
                     poster: poster,
                     description: description,
-                    genre_id: genre_id}
+                    genre: genre}
                 ).then((response) =>{
                     console.log('back from POST', response)
                     //clicking save button also routes user to home/list page...
@@ -82,8 +82,8 @@ function AddMovie() {
             {/* generates genres dynamically TODO - double check on this w/ Karsten tomorrow */}
             <select placeholder="Choose a Genre" 
                     type="text"
-                    value={genre_id}
-                    onChange={(event) => setGenre_id(event.target.value)}
+                    value={genre}
+                    onChange={(event) => setGenre(event.target.value)}
                     className="select-genre">
                         {genres.map((genre) => {
                             return (<option key={genre.id} value={genre.id}>{genre.name}</option>);

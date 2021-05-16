@@ -20,10 +20,10 @@ function MovieList() {
     const dispatch = useDispatch();
     const movies = useSelector(store => store.movies);
 
-    //may not need dispatch to genre saga here...
+    //renders all movies to DOM on page load and adds movies & genres to their Reducer
     useEffect(() => {
         dispatch({ type: 'FETCH_MOVIES' });
-        //dispatch({ type: 'FETCH_GENRES'});
+        dispatch({ type: 'FETCH_GENRES'});
     }, []);
 
     return (

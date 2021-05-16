@@ -7,7 +7,7 @@
 
 ## Home Page (App.js)
 - [x] create click event on movie posters 
-    - [x] route to /details for each movie (capture movie id value to route)
+    - [x] routes to /details for each movie (capture movie id value to route)
 - [x] create link to Add Movie Page w/ a button
 
 ## Details Page (MovieDetails)
@@ -21,7 +21,7 @@
 - [x] add an input field for movie poster image URL
 - [x] add a textarea for movie description
 - [x] add dropdown for genres 
-    - [] make dropdown dynamic somehow?
+    - [x] make dropdown dynamic by mapping through genres
 - [x] add cancel button which routes to the home page ('/')
 - [x] add save button 
 - [x] save button adds movie to database (POST route at /api/movie)
@@ -31,12 +31,19 @@
 ## Index.js
 - [x] add genre saga
 - [x] add fetchMovieDetails saga
+- [x] add movieDetails reducer
+- [] add a way to get/return genres details with movie details
 
 ## Genre.router
 - [x] add get route to return all DB genres to saga/redux
+- [x] add sql query to JOIN movies and genres and return all genres to details page
 
 ## Movie.router
 - [x] add get request for specific movie using req.params.id and sql query
+
+## Additonal
+- [x] TODO assignment 2 on sql queries and table JOINS
+- [] if time, add server side validation to POST
 
 ## General Considerations
 - [] Invest some time in styling it up!
