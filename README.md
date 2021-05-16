@@ -43,6 +43,7 @@ This application allows a user to view a list of movie posters (on page load) an
 
 ## Built With
 
+- [Javascript] (https://www.javascript.com/)
 - [Node.js] (https://nodejs.org/en/)
 - [Express.js] (https://expressjs.com/)
 - [Postgresql] (https://www.postgresql.org/)
