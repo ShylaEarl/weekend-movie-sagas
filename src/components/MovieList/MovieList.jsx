@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useHistory} from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import './MovieList.css'
 
@@ -13,7 +13,7 @@ function MovieList() {
 
     const pushMovieDetails = (id) => {
         console.log('clicked', id);
-        dispatch({type: 'FETCH_MOVIE_DETAILS', payload: id})
+        dispatch({ type: 'FETCH_MOVIE_DETAILS', payload: id })
         history.push("/details");
     }
 
@@ -23,7 +23,7 @@ function MovieList() {
     //renders all movies to DOM on page load and adds movies & genres to their Reducer
     useEffect(() => {
         dispatch({ type: 'FETCH_MOVIES' });
-        dispatch({ type: 'FETCH_GENRES'});
+        dispatch({ type: 'FETCH_GENRES' });
     }, []);
 
     return (
@@ -35,8 +35,8 @@ function MovieList() {
                     return (
                         <div key={movie.id} >
                             <h3>{movie.title}</h3>
-                            <img src={movie.poster} 
-                                alt={movie.title} 
+                            <img src={movie.poster}
+                                alt={movie.title}
                                 onClick={(event) => pushMovieDetails(movie.id)}
                             />
                         </div>

@@ -12,7 +12,7 @@
 
 ## Details Page (MovieDetails)
 - [x] Show all details of a specific movie 
-    - [] including all of the genres of said movie (store data in redux)
+    - [x] including all of the genres of said movie (store data in redux)
     - [x] create a GET request for a specific movie using req.params and :id (see above in home page)
 - [x] Details page should have a `Back to List` button routing to home page
 
